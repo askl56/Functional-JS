@@ -48,6 +48,7 @@ var coffeeSizes = [small, medium, large];
 
 // Build new objects that are combinations of the above.
 // and put them into a new array.
+
 var coffees = coffeeTypes.reduce(function(previous, current) {
   var newCoffee = coffeeSizes.map(function(mixin) {
     var newCoffeeObj = plusMixin(current, mixin);
@@ -58,6 +59,7 @@ var coffees = coffeeTypes.reduce(function(previous, current) {
 
 // We've now defined how to get the price and label for
 // each coffee type and size combination, we can just print them
+
 coffees.forEach(function(coffee){
   printPrice(coffee.getPrice(),coffee.getLabel());
 });
