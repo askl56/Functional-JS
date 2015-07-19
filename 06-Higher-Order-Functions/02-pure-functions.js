@@ -29,3 +29,15 @@ var printSomewhere = function(str, height, width) {
 };
 document.body.appendChild(printSomewhere('hello world', window.innerHeight/2)+10+"px",window.innerWidth/2)+10+"px")
 );
+
+
+// While the non-pure function relies on the state of the window object to compute the height and width, the pure, self-sufficient function instead asks that those values be passed in. What this actually does is allow the message to be printed anywhere, and this makes the function much more versatile.
+
+// And while the non-pure function may seem like the easier option because it performs the appending itself instead of returning an element, the pure function printSomewhere() and its returned value play better with other functional programming design techniques.
+
+var messages = ['Hi', 'Hello', 'Sup', 'Hey', 'Hola'];
+messages.map(function(s,i){
+  return printSomewhere(s, 100*i*10, 100*i*10);
+}).forEach(function(element) {
+  document.body.appendChild(element);
+});
